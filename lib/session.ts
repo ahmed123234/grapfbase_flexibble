@@ -28,7 +28,7 @@ export const authOptions: NextAuthOptions = {
             }, secret)
             return encodedToken;
         },
-        decode: async ({ secret, token }) => {
+        decode: ({ secret, token }) => {
             const decodedToken = jsonwebtoken.verify(token!, secret) as JWT;
 
             return decodedToken;
@@ -69,7 +69,7 @@ export const authOptions: NextAuthOptions = {
                 // after the user is created we will get it imediatly by the serverSession
                 if(!userExists.user) {
                     // use createUser mutation
-                    let newUser = await createUser(user.name as string, user.email as string, user.image as string);
+                    await createUser(user.name as string, user.email as string, user.image as string);
                 }
                 // return true if they were existed or created  
                 return true;
