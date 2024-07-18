@@ -2,9 +2,9 @@ import { ProjectForm } from '@/common.types';
 import { createProjectMutation, createUserMutation, deleteProjectMutation, getProjectByIdQuery, getProjectsOfUserQuery, getUserQuery, projectsQuery, updateProjectMutation } from '@/graphql';
 import { GraphQLClient } from 'graphql-request'
 const isProduction = process.env.NODE_ENV === 'production';
-const apiUrl = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || '': 'http://127.0.0.1:4000/graphql';
-const apiKey = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || '': 'tamsjjdk'//it can be any kind of variable that make me able to access the grafbase  
-const serverUrl = isProduction? process.env.NEXT_PUBLIC_SERVER_URL: 'http://localhost:3000'
+const apiUrl = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL! || '': 'http://127.0.0.1:4000/graphql';
+const apiKey = isProduction ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY! || '': 'tamsjjdk'//it can be any kind of variable that make me able to access the grafbase  
+const serverUrl = isProduction? process.env.NEXT_PUBLIC_SERVER_URL! : 'http://localhost:3000'
 
 // client will be a connection to grafbase database
 const client = new GraphQLClient(apiUrl)
